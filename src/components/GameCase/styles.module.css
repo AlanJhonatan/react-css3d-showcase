@@ -1,0 +1,16 @@
+.gameCaseContainer {
+  /* background-color: #fff; */
+}
+
+.face {
+  width: 150px;
+  height: 200px;
+}
+
+.front {
+  background-color: blue;
+}
+
+.back {
+  background-color: red;
+}
