@@ -1,8 +1,14 @@
 import styles from "./styles.module.css";
-import { CDArtMapping } from "./mapping";
+
+interface CD {
+  front: string;
+  back: string;
+  cd: string;
+}
 
 interface CDCaseProps {
   variant: "list-item" | "display";
+  cd: CD;
 }
 
 export function CDCase(props: CDCaseProps) {
@@ -11,17 +17,27 @@ export function CDCase(props: CDCaseProps) {
       <div className={styles.caseScene}>
         <div className={styles.case}>
           <div className={`${styles.face} ${styles.back}`}>
-            <img src={CDArtMapping.sabrinaCarpenter.emails.back} />
+            <img src={props.cd.back} />
           </div>
 
           <div className={`${styles.face} ${styles.front}`}>
-            <img src={CDArtMapping.sabrinaCarpenter.emails.front} />
+            <img src={props.cd.front} />
           </div>
 
-          <div className={styles.cd}>
-            <img src={CDArtMapping.sabrinaCarpenter.emails.cd} />
-          </div>
+          {props.variant === "list-item" && (
+            <div className={styles.cd}>
+              <img src={props.cd.cd} />
+            </div>
+          )}
+
+          <div className={`${styles.face} ${styles.acrylicShell}`} />
         </div>
+
+        {/* {props.variant === "display" && (
+          <div className={styles.cd}>
+            <img src={props.cd.cd} />
+          </div>
+        )} */}
       </div>
     </div>
   );

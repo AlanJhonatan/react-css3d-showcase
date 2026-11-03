@@ -1,26 +1,16 @@
-import { CDCase } from "../components/CDCase";
+import { useState } from "react";
+import { CDDisplay } from "../components/CDDisplay";
+import { CDList } from "../components/CDList";
 import styles from "./styles.module.css";
+import { CDs, type CD } from "../data/cds";
 
 export function Showcase() {
+  const [currentCD, setCurrentCD] = useState<CD>(CDs[0]);
+
   return (
     <div className={styles.showcaseContainer}>
-      <h1 style={{ marginBottom: "50px" }}>showcase</h1>
-
-      {/* <Cube3D /> */}
-      <div className={styles.discListContainer}>
-        <CDCase variant="list-item" />
-        <CDCase variant="list-item" />
-        <CDCase variant="list-item" />
-        <CDCase variant="list-item" />
-      </div>
-
-      <div style={{ marginTop: "200px", backgroundColor: "#dcdcdc" }}>
-        <CDCase variant="list-item" />
-      </div>
-
-      <div style={{ marginTop: "200px", backgroundColor: "#dcdcdc" }}>
-        <CDCase variant="display" />
-      </div>
+      <CDDisplay cd={currentCD} />
+      <CDList handleClick={setCurrentCD} />
     </div>
   );
 }

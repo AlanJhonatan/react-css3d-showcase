@@ -1,0 +1,29 @@
+.displayContainer {
+  display: flex;
+  justify-content: space-between;
+
+  min-height: 25rem;
+}
+
+.displayContainer h2 {
+  font-size: 4rem;
+  display: block;
+}
+
+.displayContainer h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.info {
+  width: 500px; /* Tamanho fixo em pixels */
+  flex-shrink: 0; /* Garante que o flex NUNCA encolha seus 500px */
+  position: relative;
+  z-index: 1;
+}
+
+.info + * {
+  margin-left: -120px; /* Puxa o case 120px para dentro da área do texto */
+  position: relative;
+  z-index: 2; /* Garante que o 3D fique na camada da FRENTE */
+}
