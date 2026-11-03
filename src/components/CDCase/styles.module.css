@@ -132,9 +132,9 @@
   transform: scale(0.5) translateX(50%) translateY(75%);
 }
 
-/* .caseContainer[data-variant="list-item"] .caseScene:hover .cd {
+.caseContainer[data-variant="list-item"] .caseScene:hover .cd {
   transform: translateZ(-5px) translateX(var(--cd-slide));
-} */
+}
 
 .caseContainer[data-variant="list-item"] .caseScene:hover .cd img {
   animation: cd-rotate 6s linear infinite;
