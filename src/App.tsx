@@ -4,7 +4,7 @@ import { Showcase } from "./Showcase";
 export function App() {
   return (
     <>
-      <Showcase />
+      <Showcase display={"Light"} />
     </>
   );
 }

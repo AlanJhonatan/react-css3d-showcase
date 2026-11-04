@@ -1,0 +1,117 @@
+@keyframes sceneRotate {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.lightSceneContainer {
+  background-color: #050505;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1500px;
+  perspective-origin: 50% 30%;
+
+  --cube-face: rgba(74, 249, 255, 0.414);
+  --shadow: rgba(0, 0, 0, 0.803);
+  --light: rgba(255, 255, 255, 0.247);
+  --white: rgba(255, 255, 255, 1);
+}
+
+.camera {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(50em);
+}
+
+.scene {
+  position: relative;
+  transform-style: preserve-3d;
+
+  animation: sceneRotate 10s linear infinite;
+}
+
+.floor {
+  width: 20em;
+  height: 20em;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  translate: -50% -50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(90, 90, 90, 0.15) 0%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 1) 90%
+    ),
+    repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
+
+  background-size:
+    100%,
+    1em 1em;
+
+  transform: rotateX(90deg);
+}
+
+.cube {
+  width: 5em;
+  height: 5em;
+
+  position: absolute;
+  translate: -50% -50%;
+  top: -2em;
+
+  transform-style: preserve-3d;
+}
+
+.cubeFace {
+  background-color: var(--cube-face);
+  /* border: 1px solid; */
+  position: absolute;
+
+  width: 5em;
+  height: 5em;
+
+  box-shadow: inset 0 0 1rem 0.5rem #00000068;
+}
+
+.cube .cubeFace:nth-child(1) {
+  transform: translateZ(2.5em);
+}
+
+.cube .cubeFace:nth-child(2) {
+  transform: rotateY(90deg) translateZ(2.5em);
+}
+
+.cube .cubeFace:nth-child(3) {
+  transform: rotateY(-90deg) translateZ(2.5em);
+}
+
+.cube .cubeFace:nth-child(4) {
+  transform: translateZ(-2.5em);
+}
+
+.cube .cubeFace:nth-child(5) {
+  transform: rotateX(90deg) translateZ(2.5em);
+  box-shadow: none;
+  background: color-mix(in srgb, var(--cube-face) 5%, var(--light) 80%);
+}
+
+.cube .cubeFace:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(2.5em);
+}
